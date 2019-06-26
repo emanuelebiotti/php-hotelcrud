@@ -1,0 +1,29 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+.container {
+  width:100vw;
+  height:100vh;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgrey;
+}
+.tabella {
+  width:270px;
+  height:350px;
+  border:1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  line-height: 21px;
+  background-color: white;
+}
+.stanza {
+  color:red;
+}
+.piano {
+  color:green;
+}
