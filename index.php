@@ -36,21 +36,43 @@ $result = $conn->query($sql);
     </div>
   </header>
 
-
     <div class="container">
-      <pre>
-        <?php
-        if ($result && $result->num_rows > 0) {
-          while ($row = $result-> fetch_assoc()) {
-            var_dump($row);
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Room Number</th>
+            <th scope="col">Floor</th>
+            <th scope="col">Beds</th>
+            <th scope="col">Created at</th>
+            <th scope="col">Updated at</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          if ($result && $result->num_rows > 0) {
+            while ($row = $result-> fetch_assoc()) { ?>
+
+              <tr>
+                <td> <?php echo $row['id'] ?> </td>
+                <td><?php echo $row['room_number'] ?> </td>
+                <td><?php echo $row['floor'] ?></td>
+                <td><?php echo $row['beds'] ?></td>
+                <td><?php echo $row['created_at'] ?></td>
+                <td><?php echo $row['updated_at'] ?></td>
+              </tr>
+              <?php
+            }
+          } else if ($result) {
+            echo 'Nessun risultato';
+          } else {
+            echo 'Si è verificato un errore';
           }
-        } else if ($result) {
-          echo 'Nessun risultato';
-        } else {
-          echo 'Si è verificato un errore';
-        }
-        ?>
-      </pre>
+          ?>
+
+        </tbody>
+      </table>
+
     </div>
 
   </body>
