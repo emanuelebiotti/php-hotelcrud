@@ -1,61 +1,80 @@
 <?php
+include 'db_config.php';
+include 'functions.php';
 
-$server = 'localhost';
-$user = 'root';
-$psw = 'root';
-$table = 'hotel';
+$conn = connect_db($server, $user, $psw, $database);
 
-$conn = new mysqli($server, $user, $psw, $table);
 
 if($conn && $conn->connect_error) {
   echo 'errore: '.$conn->connect_error;
   exit();
 }
-?>
+
+$sql = "SELECT * FROM stanze";
+$result = $conn->query($sql);
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="style.css">
+    <title>PHP HOTEL CRUD</title>
+    <link rel="stylesheet" href="/public/css/app.css">
   </head>
   <body>
     <div class="container">
-      <div class="tabella">
+      <pre>
         <?php
-        $sql = "SELECT room_number, floor FROM stanze";
-        $result = $conn->query($sql);
-
-        if($result) {
-          if($result->num_rows > 0) { ?>
-            <table>
-            <?php
-            while($row = $result->fetch_assoc()) { //standard per scorrere i risultati dentro $result e ogni risultato lo si assegna a $row
-              ?>
-
-                <tr>
-                  <td><span class="stanza">Stanza numero:</span> <?php echo $row['room_number'];?></td>
-                  <td><span class="piano">Piano numero:</span> <?php echo $row['floor'];?></td>
-                </tr>
-
-            <?php } ?>
-          </table>
-          <?php } else {
-            echo 'no results';
+        if ($result && $result->num_rows > 0) {
+          while ($row = $result-> fetch_assoc()) {
+            var_dump($row);
           }
+        } else if ($result) {
+          echo 'Nessun risultato';
         } else {
-          echo 'errore query';
+          echo 'Si è verificato un errore';
         }
         ?>
-
-      </div>
+      </pre>
     </div>
+
   </body>
 </html>
 
+ <?php
+/*
+$server = 'localhost';
+$user = 'root';
+$psw = 'root';
+$database = 'hotel';
 
-<?php
+$conn = new mysqli($server, $user, $psw, $database);
+
+if($conn && $conn->connect_error) {
+  echo 'errore: '.$conn->connect_error;
+  exit();
+}
+// arrivando qui, significa che la connessione al database funziona
+
+$sql = "SELECT * FROM stanze";
+$result = $conn->query($sql);
+
+if ($result && $result->num_rows > 0) {
+
+  while ($row = $result->fetch_assoc()) {
+    // var_dump($row);
+    echo "stanza n ".$row['room_number']. " piano ".$row['floor'];
+    echo '<br>';
+    }
+  }
+
+else if ($result) {
+  echo "0 risultati";
+} else {
+  echo "errore query";
+}
 
 $conn->close();
-
+*/
 ?>
