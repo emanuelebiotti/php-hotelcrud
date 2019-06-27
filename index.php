@@ -20,6 +20,7 @@ $result = $conn->query($sql);
   <head>
     <meta charset="utf-8">
     <title>PHP HOTEL CRUD</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/public/css/app.css">
   </head>
   <body>
@@ -40,12 +41,14 @@ $result = $conn->query($sql);
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Room Number</th>
-            <th scope="col">Floor</th>
-            <th scope="col">Beds</th>
-            <th scope="col">Created at</th>
-            <th scope="col">Updated at</th>
+            <th class="text-center" scope="col">ID</th>
+            <th class="text-center" scope="col">Room Number</th>
+            <th class="text-center" scope="col">Floor</th>
+            <th class="text-center" scope="col">Beds</th>
+            <th class="text-center" scope="col">Created at</th>
+            <th class="text-center" scope="col">Updated at</th>
+            <th class="text-center" scope="col">Action</th>
+
           </tr>
         </thead>
         <tbody>
@@ -54,12 +57,15 @@ $result = $conn->query($sql);
             while ($row = $result-> fetch_assoc()) { ?>
 
               <tr>
-                <td> <?php echo $row['id'] ?> </td>
-                <td><?php echo $row['room_number'] ?> </td>
-                <td><?php echo $row['floor'] ?></td>
-                <td><?php echo $row['beds'] ?></td>
-                <td><?php echo $row['created_at'] ?></td>
-                <td><?php echo $row['updated_at'] ?></td>
+                <td class="text-center"><?php echo $row['id'] ?> </td>
+                <td class="text-center"><?php echo $row['room_number'] ?> </td>
+                <td class="text-center"><?php echo $row['floor'] ?></td>
+                <td class="text-center"><?php echo $row['beds'] ?></td>
+                <td class="text-center"><?php echo $row['created_at'] ?></td>
+                <td class="text-center"><?php echo $row['updated_at'] ?></td>
+                <td class="text-center">
+                  <a href="show.php" class="btn btn-primary">Visualizza</a>
+                </td>
               </tr>
               <?php
             }
