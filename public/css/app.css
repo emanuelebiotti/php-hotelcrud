@@ -11100,3 +11100,19 @@ a.text-dark:focus {
   }
 }
 
+header {
+  height: 80px;
+}
+
+header img {
+  height: 80px;
+}
+
+nav {
+  float: right;
+}
+
+nav a {
+  color: red;
+}
+
