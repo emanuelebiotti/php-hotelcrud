@@ -49,7 +49,7 @@ $result = $conn->query($sql);
                 <td class="text-center"><?php echo $row['created_at'] ?></td>
                 <td class="text-center"><?php echo $row['updated_at'] ?></td>
                 <td class="text-center">
-                  <a href="show.php?=<?php echo $row['id']?>" class="btn btn-primary">Visualizza</a>
+                  <a href="show.php?id=<?php echo $row['id']?>" class="btn btn-primary">Visualizza</a>
                 </td>
               </tr>
               <?php
