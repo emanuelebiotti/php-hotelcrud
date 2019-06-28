@@ -15,27 +15,12 @@ $result = $conn->query($sql);
 
  ?>
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>PHP HOTEL CRUD</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/public/css/app.css">
-  </head>
-  <body>
 
-  <header>
-    <div class="container">
-      <img src="https://www.intornodesign.it/cms/wp-content/uploads/client/bulgari/Bulgari_logo-01-500x301.png" alt="Logo hotel">
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">La nostra storia</a>
-        <a href="#">Prenota</a>
-        <a href="#">Contatti</a>
-      </nav>
-    </div>
-  </header>
+  <?php
+    include 'layout/head.php';
+    include 'layout/navbar.php';
+   ?>
+
 
     <div class="container">
       <table class="table">
@@ -64,7 +49,7 @@ $result = $conn->query($sql);
                 <td class="text-center"><?php echo $row['created_at'] ?></td>
                 <td class="text-center"><?php echo $row['updated_at'] ?></td>
                 <td class="text-center">
-                  <a href="show.php" class="btn btn-primary">Visualizza</a>
+                  <a href="show.php?=<?php echo $row['id']?>" class="btn btn-primary">Visualizza</a>
                 </td>
               </tr>
               <?php
@@ -81,42 +66,8 @@ $result = $conn->query($sql);
 
     </div>
 
+    <?php
+    include 'layout/footer.php';
+    ?>
   </body>
 </html>
-
- <?php
-/*
-$server = 'localhost';
-$user = 'root';
-$psw = 'root';
-$database = 'hotel';
-
-$conn = new mysqli($server, $user, $psw, $database);
-
-if($conn && $conn->connect_error) {
-  echo 'errore: '.$conn->connect_error;
-  exit();
-}
-// arrivando qui, significa che la connessione al database funziona
-
-$sql = "SELECT * FROM stanze";
-$result = $conn->query($sql);
-
-if ($result && $result->num_rows > 0) {
-
-  while ($row = $result->fetch_assoc()) {
-    // var_dump($row);
-    echo "stanza n ".$row['room_number']. " piano ".$row['floor'];
-    echo '<br>';
-    }
-  }
-
-else if ($result) {
-  echo "0 risultati";
-} else {
-  echo "errore query";
-}
-
-$conn->close();
-*/
-?>

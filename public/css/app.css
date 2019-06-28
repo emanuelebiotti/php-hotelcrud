@@ -11110,9 +11110,34 @@ header img {
 
 nav {
   float: right;
+  width: 400px;
+  display: -webkit-box;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  top: 50px;
 }
 
 nav a {
   color: red;
+}
+
+table {
+  padding-bottom: 50px;
+}
+
+footer {
+  width: 100vw;
+  height: 50px;
+  background: lightgrey;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+small {
+  position: relative;
+  left: 650px;
 }
 
