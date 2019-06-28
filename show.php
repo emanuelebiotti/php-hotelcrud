@@ -29,14 +29,16 @@ $result = $conn->query($sql);
     $row = $result-> fetch_assoc(); ?>
 
 
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 20rem;">
       <img class="card-img-top" src="https://www.rd.com/wp-content/uploads/2018/05/15-Things-You-Should-Never-Ever-Do-in-a-Hotel-Room-6.jpg" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title"> Stanza numero <?php echo $row['room_number'] ?> </h5>
         <p class="card-text"> la stanza si trova al piano: <?php echo $row['floor']  ?> </p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Numero letti: <?php echo $row['beds'] ?> </li>
+        <li class="list-group-item"><strong> Numero letti:</strong> <?php echo $row['beds'] ?> </li>
+        <li class="list-group-item"><strong>Inserita il:</strong> <?php echo $row['created_at'] ?> </li>
+        <li class="list-group-item"><strong>Aggiornata il:</strong> <?php echo $row['updated_at'] ?> </li>
         <li class=" text-center list-group-item"> <a class="btn btn-primary" href="index.php">Torna alla Home</a> </li>
       </ul>
     </div>

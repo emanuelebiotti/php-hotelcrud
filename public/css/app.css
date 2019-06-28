@@ -11119,7 +11119,7 @@ nav {
 }
 
 nav a {
-  color: red;
+  color: blue;
 }
 
 table {
@@ -11128,7 +11128,7 @@ table {
 
 footer {
   width: 100vw;
-  height: 50px;
+  height: 30px;
   background: lightgrey;
   display: -webkit-box;
   display: flex;

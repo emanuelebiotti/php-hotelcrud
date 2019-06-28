@@ -23,6 +23,7 @@ $result = $conn->query($sql);
 
 
     <div class="container">
+
       <table class="table">
         <thead>
           <tr>
@@ -49,7 +50,11 @@ $result = $conn->query($sql);
                 <td class="text-center"><?php echo $row['created_at'] ?></td>
                 <td class="text-center"><?php echo $row['updated_at'] ?></td>
                 <td class="text-center">
-                  <a href="show.php?id=<?php echo $row['id']?>" class="btn btn-primary">Visualizza</a>
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <a type="button" href="show.php?id=<?php echo $row['id']?>"  class="btn btn-primary">Visualizza</a>
+                    <a type="button" href="show.php?id=<?php echo $row['id']?>"  class="btn btn-secondary">Modifica</a>
+                    <a type="button" href="show.php?id=<?php echo $row['id']?>"  class="btn btn-danger">Cancella</a>
+                  </div>
                 </td>
               </tr>
               <?php
@@ -63,7 +68,6 @@ $result = $conn->query($sql);
 
         </tbody>
       </table>
-
     </div>
 
     <?php
