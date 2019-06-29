@@ -70,8 +70,10 @@ $result = $conn->query($sql);
       </table>
     </div>
 
-    <?php
-    include 'layout/footer.php';
-    ?>
+  <?php
+  include 'layout/footer.php';
+  $conn->close();
+  ?>
+
   </body>
 </html>

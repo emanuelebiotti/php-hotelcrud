@@ -60,4 +60,6 @@ $result = $conn->query($sql);
 
   include 'layout/footer.php';
 
+  $conn->close();
+
  ?>
